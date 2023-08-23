@@ -1,5 +1,5 @@
 
-const prompt = require('prompt-sync')({sigint: true}); 
+const prompt = require('prompt-sync')({sigint: true}); // install prompt-sync package to use
 
 console.log("\nWelcome to KodeCamp 3.0 NodeJs Beginner's Track Guessing Game!\n")
 
