@@ -1,5 +1,12 @@
 
-// install prompt-sync package to run code.
+const prompt = require('prompt-sync')({sigint: true}); // install prompt-sync package to use// install prompt-sync package to run code.
+
+console.log("\nWelcome to KodeCamp 3.0 NodeJs Beginner's Track Cart Simulator!\n");
+console.log("Game Instruction.")
+console.log("Input 'add' to add a value\nInput 'remove' to remove a value");
+console.log("Input 'show-items' to show the items in the cart");
+console.log("Input 'length' to to show the length of the cart");
+console.log("Input 'exit' to exit the program\n");
 
 let cart = {
     cartArray:[],
@@ -35,16 +42,7 @@ let cart = {
         console.log(this.cartArray.length)
     },
 
-    standby (){
-        const prompt = require('prompt-sync')({sigint: true}); // install prompt-sync package to use
-
-        console.log("\nWelcome to KodeCamp 3.0 NodeJs Beginner's Track Cart Simulator!\n")
-
-        console.log("Game Instruction.")
-        console.log("Input 'add' to add a value\nInput 'remove' to remove a value")
-        console.log("Input 'show-items' to show the items in the cart")
-        console.log("Input 'length' to to show the length of the cart")
-        console.log("Input 'exit' to exit the program\n")
+    standby (){  
 
         let isFalse = false; // Loop condition.
 
@@ -79,8 +77,7 @@ let cart = {
             console.log("Input 'show-items' to show the items in the cart")
             console.log("Input 'length' to to show the length of the cart")
             console.log("Input 'exit' to exit the program\n")
-    
-            
+               
         }
     }
 }
