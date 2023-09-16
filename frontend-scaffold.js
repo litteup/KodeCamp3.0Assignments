@@ -74,7 +74,7 @@ function writeToFile(filename, data){
 writeToFile(`./frontend-scaffold/`+'index.html',htmlFileData);
 
 let folderArray = ["css", "js", "images"];
-let filesArray = ["styles.css","script.js"];
+let filesArray = ["style.css","script.js"];
 let contentOfFiles = [cssFileData, jsFileData];
 
 // Create a folder
