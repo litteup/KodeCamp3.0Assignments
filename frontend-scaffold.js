@@ -84,7 +84,7 @@ folderArray.forEach(folder => {
 });
 
 for (let i = 0; i < folderArray.length -1; i++) {
-    let filePath = (__dirname+`\\frontend-scaffold`+`\\${folderArray[i]}`+`\\${filesArray[i]}`)
+    let filePath = (__dirname+`/frontend-scaffold`+`/${folderArray[i]}`+`/${filesArray[i]}`)
     let fileContent = contentOfFiles[i];
     writeToFile(filePath,fileContent);
 }
