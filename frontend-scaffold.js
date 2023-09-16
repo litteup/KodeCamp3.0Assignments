@@ -1,30 +1,7 @@
 
-const fs = require('fs/promises');
+const fs = require('fs');
 const path = require('path');
 
-
-//Script to create a folder 
-
-async function createAfolder(folderName){
-    try {
-        await fs.mkdir(folderName);
-        //console.log(`Folder "${folderName}" created successfully.`);
-    } catch (error) {
-        console.error(`Error encountered while attempting to create ${folderName} folder: ${error.message}.`)
-    }
-};
-
-//Script to create a file.
-
-async function writeToFile(filename, data){
-    try {
-        await fs.writeFile(filename, data);
-        //console.log(`${filename} created successfully and data written into it.`);
-    } catch (error) {
-        console.error(`Error encountered while attempting to create the file ${filename}.\n${error.message}.`)
-        
-    }
-};
 
 // Content of html file.
 let htmlFileData = `<!DOCTYPE html>
@@ -63,30 +40,52 @@ h1 {
 
 text-align:center;
 
-}`
-
+}`;
 
 // Content of js file.
 let jsFileData = `
 alert("Welcome"); `
 
+//Script to create a folder 
 
-let folderArray = ["frontend-scaffold", "css", "js", "images"];
-let filesArray = ["index.html", "styles.css","script.js"];
-let contentOfFiles = [htmlFileData, cssFileData, jsFileData];
+function createAfolder(folderName){
+    try {
+        fs.mkdirSync(folderName);
+        
+    } catch (error) {
+        console.error(`Error creating folder: ${error.message}`);
+
+    }
+};
+
+createAfolder('frontend-scaffold');
+
+//Script to create a file.
+
+function writeToFile(filename, data){
+    try {
+        fs.writeFileSync(filename, data);
+        
+    } catch (error) {
+        console.error(`Error encountered while attempting to create the file ${filename}.\n${error.message}.`)
+       
+    }
+};
+writeToFile(`./frontend-scaffold/`+'index.html',htmlFileData);
+
+let folderArray = ["css", "js", "images"];
+let filesArray = ["styles.css","script.js"];
+let contentOfFiles = [cssFileData, jsFileData];
 
 // Create a folder
 folderArray.forEach(folder => {
-    createAfolder(folder);
+    createAfolder(`./frontend-scaffold/` +folder);
     
 });
-// Function creates files and their corresponding contents.
 
-filesArray.forEach(file => {    
-    let index = filesArray.indexOf(file);
-    let filePath = path.join(__dirname + "/"+folderArray[index])
-    writeToFile(filePath + `/${file}`, contentOfFiles[index]); 
-});
-
-
+for (let i = 0; i < folderArray.length -1; i++) {
+    let filePath = (__dirname+`\\frontend-scaffold`+`\\${folderArray[i]}`+`\\${filesArray[i]}`)
+    let fileContent = contentOfFiles[i];
+    writeToFile(filePath,fileContent);
+}
 console.log("Frontend scaffold created successfully!");
